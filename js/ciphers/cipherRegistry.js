@@ -14,6 +14,7 @@ import { batalhaNavalComChaveCipher } from './batalhaNavalComChaveCipher.js';
 import { caracolCipher } from './caracolCipher.js';
 import { primeiraLetraFalsaCipher } from './primeiraLetraFalsaCipher.js';
 import { palavrasSeguidasCipher } from './palavrasSeguidasCipher.js';
+import { palavrasDivididasCipher } from './palavrasDivididasCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -36,6 +37,7 @@ class CipherRegistry {
         this.register(ultimaLetraFalsaCipher);
         this.register(primeiraLetraFalsaCipher);
         this.register(palavrasSeguidasCipher);
+        this.register(palavrasDivididasCipher);
         this.register(batalhaNavalComChaveCipher);
         this.register(caracolCipher);
         // sampleCipher mantida no código para referência mas omitida do seletor UI
