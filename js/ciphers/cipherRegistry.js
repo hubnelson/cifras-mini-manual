@@ -12,6 +12,7 @@ import { chaveMaisCipher } from './chaveMaisCipher.js';
 import { ultimaLetraFalsaCipher } from './ultimaLetraFalsaCipher.js';
 import { batalhaNavalComChaveCipher } from './batalhaNavalComChaveCipher.js';
 import { caracolCipher } from './caracolCipher.js';
+import { primeiraLetraFalsaCipher } from './primeiraLetraFalsaCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -32,6 +33,7 @@ class CipherRegistry {
         this.register(caranguejoCipher);
         this.register(chaveMaisCipher);
         this.register(ultimaLetraFalsaCipher);
+        this.register(primeiraLetraFalsaCipher);
         this.register(batalhaNavalComChaveCipher);
         this.register(caracolCipher);
         // sampleCipher mantida no código para referência mas omitida do seletor UI
