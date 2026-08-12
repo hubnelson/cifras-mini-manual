@@ -34,7 +34,7 @@ function substitute(text) {
 
 export const invertedAlphabetCipher = {
     id: 'inverted-alphabet',
-    name: '3. Alfabeto Invertido',
+    name: 'Alfabeto Invertido',
     description: 'Por baixo do alfabeto normal, escreve-se o mesmo alfabeto, mas invertido. As letras de baixo são a codificação das de cima (A=Z, B=Y, C=X, etc.).',
     example: 'Entrada: "ESCUTEIRO"\nSaída: "VHXFGVRIL"',
     

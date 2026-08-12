@@ -24,7 +24,7 @@ function getBaseKey(options = {}) {
 
 export const numeralAlphabetCipher = {
     id: 'numeral-alphabet',
-    name: '6. Alfabeto Numeral',
+    name: 'Alfabeto Numeral',
     description: 'A cada letra do alfabeto corresponde um número. Sem chave: A=01, B=02, ..., Z=26. Ativa o interruptor «Com chave» para definir um número inicial diferente para a letra A (ex: 12).',
     example: 'Sem chave: "ESCUTEIRO" -> "051903212005091815"\nCom chave (12): "ESCUTEIRO" -> "163014323116202926"',
     

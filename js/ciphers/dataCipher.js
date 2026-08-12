@@ -32,7 +32,7 @@ const COL_DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 export const dataCipher = {
     id: 'data',
-    name: '2. Data',
+    name: 'Data',
     description: 'O código Data é feito com uma tabela em que na coluna mais à esquerda se coloca uma data (a data chave do código, ex: 1984). Cada letra é composta por dois algarismos: o 1.º corresponde à linha (dígito da data) e o 2.º à coluna (1-9, 0).',
     example: 'Chave: 1984\nEntrada: "ALERTA"\nSaída: "119215989011"',
     

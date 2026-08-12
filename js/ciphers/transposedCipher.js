@@ -22,7 +22,7 @@ const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 export const transposedCipher = {
     id: 'transposed',
-    name: '4. Transposto',
+    name: 'Transposto',
     description: 'Por baixo do alfabeto normal, escreve-se o mesmo alfabeto, mas começando na letra chave do código (ex: V, em que A = V). As letras de baixo são a codificação das de cima.',
     example: 'Chave: V\nEntrada: "ESCUTEIRO"\nSaída: "ZNXPOZDMJ"',
     

@@ -25,7 +25,7 @@ function parseMelrosCount(optionVal) {
 
 export const passaNMelrosCipher = {
     id: 'passa-n-melros',
-    name: '5. Passa N Melros',
+    name: 'Passa N Melros',
     description: 'O código «Passa N Melros» consiste em intercalar N letras aleatórias a seguir a cada letra da mensagem (ex: 1 melro, 2 melros, até 5 melros). Escolhe a quantidade N no seletor.',
     example: 'Seletor: 1 Melro\nEntrada: "SOL"\nSaída: "SAOXLY" (exemplo com letras aleatórias intercaladas)',
     

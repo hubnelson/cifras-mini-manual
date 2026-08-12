@@ -18,7 +18,7 @@ class CipherRegistry {
         this.register(transposedCipher);
         this.register(passaNMelrosCipher);
         this.register(numeralAlphabetCipher);
-        this.register(sampleCipher);
+        // sampleCipher mantida no código para referência mas omitida do seletor UI
     }
 
     /**
