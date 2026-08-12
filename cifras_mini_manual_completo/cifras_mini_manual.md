@@ -578,27 +578,27 @@ O código caracol precisa de uma chave, tanto para codificar, como para descodif
 
 Vamos dar o exemplo de um Caracol 6, uma mensagem que queremos codificar. O número de letras da mensagem a codificar tem de ser sempre igual ou inferior ao quadrado da chave, neste caso, a mensagem tem de ter menos de 36 (6x6) letras. Mas uma mensagem com 24 ou 25 letras não deveria ser escrita com Caracol 6, mas sim com Caracol 5 (5x5=25).
 
-Mensagem:
-
-```text
-ACAMPAMENTO JUNTO AO RIO COM FOGUEIRA
-```
-
 As letras são dispostas em caracol, no sentido contrário aos ponteiros do relógio. Os espaços que sobram devem ser preenchidos com letras ao acaso.
 
 A mensagem cifrada é, então, obtida lendo normalmente na horizontal.
 
 Para decifrar, contamos quantas letras têm a mensagem, e achamos a raiz quadrada, para sabermos quantas letras de largura tem a tabela. A seguir, dispomos as letras na tabela, e depois lemos em caracol.
 
-## Esquema
-
-![Exemplo de Caracol 6](assets/caracol.svg)
-
 ## Exemplo
 
 ```text
+ACAMPAMENTO JUNTO AO RIO COM FOGUEIRA = 
 AIROAOCOARITACLAENMOTUUUPMFOGJAMENTO
 ```
+
+## Esquema da tabela
+
+| A | I | R | O | A | O |
+| C | O | A | R | I | T |
+| A | C | L | A | E | N |
+| M | O | T | U | U | U |
+| P | M | F | O | G | J |
+| A | M | E | N | T | O |
 
 ---
 
