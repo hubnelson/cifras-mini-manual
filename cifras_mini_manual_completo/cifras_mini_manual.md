@@ -3,8 +3,6 @@
 Edição digital em Markdown do conteúdo fornecido do *Mini Manual de Técnica Escutista*.
 
 > **Nota editorial:** esta versão procura preservar a redação, os exemplos e a organização do manual. As tabelas foram convertidas para Markdown e alguns esquemas gráficos foram recriados em SVG para manter a legibilidade em formato digital.
->
-> Conforme solicitado, a cifra **Picos de Morse** não está incluída.
 
 ## Índice
 

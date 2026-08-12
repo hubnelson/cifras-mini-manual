@@ -1,5 +1,6 @@
 import { sampleCipher } from './sampleCipher.js';
 import { dataCipher } from './dataCipher.js';
+import { invertedAlphabetCipher } from './invertedAlphabetCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -10,6 +11,7 @@ class CipherRegistry {
         
         // Registar cifras
         this.register(dataCipher);
+        this.register(invertedAlphabetCipher);
         this.register(sampleCipher);
     }
 
