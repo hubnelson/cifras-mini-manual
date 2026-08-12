@@ -28,13 +28,28 @@ export const ultimaLetraFalsaCipher = {
     encode(text) {
         if (!text) return '';
         const normalized = normalizeText(text);
-        const words = normalized.trim().split(/\s+/);
-        const splitWords = [];
+        const words = normalized.trim().split(/\s+/).filter(w => w.length > 0);
 
-        // 1. Separar aleatoriamente cerca de metade das palavras ao meio
-        words.forEach(word => {
+        // Identificar índices de palavras elegíveis para serem cortadas ao meio (tamanho >= 2)
+        const eligibleIndices = [];
+        words.forEach((w, idx) => {
+            const clean = w.replace(/[^A-Z]/g, '');
+            if (clean.length >= 2) {
+                eligibleIndices.push(idx);
+            }
+        });
+
+        // Selecionar exatamente metade das palavras elegíveis
+        const targetSplitCount = Math.floor(eligibleIndices.length / 2);
+        
+        // Baralhar aleatoriamente os índices elegíveis para escolher exatamente metade
+        const shuffled = [...eligibleIndices].sort(() => Math.random() - 0.5);
+        const splitIndexSet = new Set(shuffled.slice(0, targetSplitCount));
+
+        const splitWords = [];
+        words.forEach((word, idx) => {
             const cleanWord = word.replace(/[^A-Z]/g, '');
-            if (cleanWord.length >= 4 && Math.random() < 0.6) {
+            if (splitIndexSet.has(idx) && cleanWord.length >= 2) {
                 const mid = Math.floor(cleanWord.length / 2);
                 splitWords.push(cleanWord.slice(0, mid));
                 splitWords.push(cleanWord.slice(mid));
@@ -43,7 +58,7 @@ export const ultimaLetraFalsaCipher = {
             }
         });
 
-        // 2. Adicionar uma letra falsa no final de cada palavra da nova frase
+        // Adicionar uma letra falsa no final de cada palavra da nova frase
         const encodedWords = splitWords.map(w => w + getRandomLetter());
 
         return encodedWords.join(' ');
