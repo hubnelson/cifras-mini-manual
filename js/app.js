@@ -147,7 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     input.id = `extra_${field.id}`;
                     input.className = 'form-control';
                     input.value = field.defaultValue !== undefined ? field.defaultValue : '';
-                    if (field.readOnly) input.readOnly = true;
+                    if (field.readOnly) {
+                        input.readOnly = true;
+                        input.disabled = true;
+                        input.style.cursor = 'not-allowed';
+                        input.style.opacity = '0.7';
+                        input.style.backgroundColor = 'var(--bg-card)';
+                    }
                     if (field.min !== undefined) input.min = field.min;
                     if (field.max !== undefined) input.max = field.max;
                     if (field.placeholder) {
@@ -196,8 +202,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
+
+            updateComputedFields();
         } else {
             cipherExtraOptions.classList.add('hidden');
+        }
+    }
+
+    // Atualiza campos calculados automaticamente (ex: tamanho da tabela do Caracol)
+    function updateComputedFields() {
+        const selectedId = cipherSelect.value;
+        const text = inputText.value;
+        if (selectedId === 'caracol') {
+            const gridSizeInput = document.getElementById('extra_gridSize');
+            if (gridSizeInput) {
+                const cleaned = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z]/g, '');
+                const size = cleaned.length > 0 ? Math.ceil(Math.sqrt(cleaned.length)) : 0;
+                gridSizeInput.value = size;
+            }
         }
     }
 
@@ -260,18 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const options = getExtraOptionsValues(cipher);
 
         try {
-            const res = isEncode ? cipher.encode(text, options) : cipher.decode(text, options);
-            if (typeof res === 'object' && res !== null && res.result !== undefined) {
-                outputText.value = res.result;
-                if (res.computedGridSize !== undefined) {
-                    const gridSizeInput = document.getElementById('extra_gridSize');
-                    if (gridSizeInput) {
-                        gridSizeInput.value = res.computedGridSize;
-                    }
-                }
-            } else {
-                outputText.value = res;
-            }
+            updateComputedFields();
+            const result = isEncode ? cipher.encode(text, options) : cipher.decode(text, options);
+            outputText.value = typeof result === 'string' ? result : '';
             updateStats();
         } catch (error) {
             console.error('Erro ao processar cifra:', error);

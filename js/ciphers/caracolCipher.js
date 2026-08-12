@@ -41,15 +41,18 @@ export const caracolCipher = {
         }
     ],
 
+    calculateGridSize(text) {
+        return calculateGridSize(text);
+    },
+
     encode(text, options = {}) {
-        if (!text) return { result: '', computedGridSize: 0 };
+        if (!text) return '';
         const cleaned = normalizeText(text);
-        if (!cleaned) return { result: '', computedGridSize: 0 };
+        if (!cleaned) return '';
 
         const N = calculateGridSize(text);
         const totalCells = N * N;
 
-        // Preenche o array de caracteres (adiciona letras aleatórias se a mensagem for menor que totalCells)
         const charList = [];
         for (let i = 0; i < totalCells; i++) {
             if (i < cleaned.length) {
@@ -59,10 +62,8 @@ export const caracolCipher = {
             }
         }
 
-        // Criar matriz N x N
         const matrix = Array.from({ length: N }, () => Array(N).fill(''));
 
-        // Preencher a matriz em caracol anti-horário
         let top = 0;
         let bottom = N - 1;
         let left = 0;
@@ -70,32 +71,27 @@ export const caracolCipher = {
         let charIdx = 0;
 
         while (top <= bottom && left <= right) {
-            // 1. Descer pela coluna da esquerda
             for (let r = top; r <= bottom && left <= right; r++) {
                 matrix[r][left] = charList[charIdx++];
             }
             left++;
 
-            // 2. Ir para a direita pela linha inferior
             for (let c = left; c <= right && top <= bottom; c++) {
                 matrix[bottom][c] = charList[charIdx++];
             }
             bottom--;
 
-            // 3. Subir pela coluna da direita
             for (let r = bottom; r >= top && left <= right; r--) {
                 matrix[r][right] = charList[charIdx++];
             }
             right--;
 
-            // 4. Ir para a esquerda pela linha superior
             for (let c = right; c >= left && top <= bottom; c--) {
                 matrix[top][c] = charList[charIdx++];
             }
             top++;
         }
 
-        // Ler a matriz horizontalmente por linhas
         let result = '';
         for (let r = 0; r < N; r++) {
             for (let c = 0; c < N; c++) {
@@ -103,18 +99,16 @@ export const caracolCipher = {
             }
         }
 
-        return { result, computedGridSize: N };
+        return result;
     },
 
     decode(text, options = {}) {
-        if (!text) return { result: '', computedGridSize: 0 };
+        if (!text) return '';
         const cleaned = normalizeText(text);
-        if (!cleaned) return { result: '', computedGridSize: 0 };
+        if (!cleaned) return '';
 
         const N = calculateGridSize(text);
-        const totalCells = N * N;
 
-        // Criar matriz N x N e preencher horizontalmente com o texto cifrado
         const matrix = Array.from({ length: N }, () => Array(N).fill(''));
         let charIdx = 0;
 
@@ -126,7 +120,6 @@ export const caracolCipher = {
             }
         }
 
-        // Ler a matriz na sequência do caracol anti-horário
         let top = 0;
         let bottom = N - 1;
         let left = 0;
@@ -134,31 +127,27 @@ export const caracolCipher = {
         let result = '';
 
         while (top <= bottom && left <= right) {
-            // 1. Descer pela coluna da esquerda
             for (let r = top; r <= bottom && left <= right; r++) {
                 result += matrix[r][left];
             }
             left++;
 
-            // 2. Ir para a direita pela linha inferior
             for (let c = left; c <= right && top <= bottom; c++) {
                 result += matrix[bottom][c];
             }
             bottom--;
 
-            // 3. Subir pela coluna da direita
             for (let r = bottom; r >= top && left <= right; r--) {
                 result += matrix[r][right];
             }
             right--;
 
-            // 4. Ir para a esquerda pela linha superior
             for (let c = right; c >= left && top <= bottom; c--) {
                 result += matrix[top][c];
             }
             top++;
         }
 
-        return { result, computedGridSize: N };
+        return result;
     }
 };
