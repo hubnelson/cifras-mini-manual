@@ -36,14 +36,18 @@ function getGridMaps(keyLetterOption) {
         coordToChar[coord] = char;
     });
 
-    return { charToCoord, coordToChar };
+    // A letra chave é mapeada para '...'
+    charToCoord[keyChar] = '...';
+    coordToChar['...'] = keyChar;
+
+    return { charToCoord, coordToChar, keyChar };
 }
 
 export const batalhaNavalComChaveCipher = {
     id: 'batalha-naval-com-chave',
     name: 'Batalha Naval com Chave',
-    description: 'É feita uma tabela 5x5 estilo Batalha Naval (Colunas A-E, Linhas 1-5). As 25 letras do alfabeto são dispostas ordenadamente a partir da letra a seguir à Letra Chave.',
-    example: 'Chave: J\nEntrada: "CHAMAR"\nSaída: "D4 D5 B4 C1 B4 C2"',
+    description: 'É feita uma tabela 5x5 estilo Batalha Naval (Colunas A-E, Linhas 1-5). As 25 letras do alfabeto são dispostas ordenadamente a partir da letra a seguir à Letra Chave. A letra chave em si é representada por «...».',
+    example: 'Chave: J\nEntrada: "CHAMAR A JOANA"\nSaída: "D4 D5 B4 C1 B4 C2 B4 ... E1 B4 D1 B4"',
     
     hasExtraFields: true,
     extraFields: [
