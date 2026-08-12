@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="300" viewBox="0 0 540 300">
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill:#111; }
+.label { font-size:14px; font-weight:700; text-anchor:middle; }
+.small { font-size:11px; }
+.line { stroke:#111; stroke-width:2.2; stroke-linecap:round; fill:none; }
+.grid { stroke:#333; stroke-width:1.2; fill:none; }
+.dot { fill:#111; }
+</style>
+<rect class="grid" x="30" y="30" width="50" height="46"/>
+<text class="label" x="55.0" y="59">T</text>
+<rect class="grid" x="80" y="30" width="50" height="46"/>
+<text class="label" x="105.0" y="59">I</text>
+<rect class="grid" x="130" y="30" width="50" height="46"/>
+<text class="label" x="155.0" y="59">R</text>
+<rect class="grid" x="180" y="30" width="50" height="46"/>
+<text class="label" x="205.0" y="59">A</text>
+<rect class="grid" x="30" y="76" width="50" height="46"/>
+<text class="label" x="55.0" y="105">U</text>
+<rect class="grid" x="80" y="76" width="50" height="46"/>
+<text class="label" x="105.0" y="105">Z</text>
+<rect class="grid" x="130" y="76" width="50" height="46"/>
+<text class="label" x="155.0" y="105">E</text>
+<rect class="grid" x="180" y="76" width="50" height="46"/>
+<text class="label" x="205.0" y="105">M</text>
+<rect class="grid" x="30" y="122" width="50" height="46"/>
+<text class="label" x="55.0" y="151">R</text>
+<rect class="grid" x="80" y="122" width="50" height="46"/>
+<text class="label" x="105.0" y="151">A</text>
+<rect class="grid" x="130" y="122" width="50" height="46"/>
+<text class="label" x="155.0" y="151">M</text>
+<rect class="grid" x="180" y="122" width="50" height="46"/>
+<text class="label" x="205.0" y="151">C</text>
+<rect class="grid" x="30" y="168" width="50" height="46"/>
+<text class="label" x="55.0" y="197">A</text>
+<rect class="grid" x="80" y="168" width="50" height="46"/>
+<text class="label" x="105.0" y="197">T</text>
+<rect class="grid" x="130" y="168" width="50" height="46"/>
+<text class="label" x="155.0" y="197">R</text>
+<rect class="grid" x="180" y="168" width="50" height="46"/>
+<text class="label" x="205.0" y="197">E</text>
+<rect class="grid" x="30" y="214" width="50" height="46"/>
+<text class="label" x="55.0" y="243">N</text>
+<rect class="grid" x="80" y="214" width="50" height="46"/>
+<text class="label" x="105.0" y="243">D</text>
+<rect class="grid" x="130" y="214" width="50" height="46"/>
+<text class="label" x="155.0" y="243">I</text>
+<rect class="grid" x="180" y="214" width="50" height="46"/>
+<text class="label" x="205.0" y="243">A</text>
+<text class="small" x="30" y="284">Cartão com a mensagem e letras aleatórias</text>
+<rect class="grid" x="300" y="30" width="50" height="46"/>
+<line class="line" x1="312" y1="40" x2="338" y2="66"/>
+<line class="line" x1="338" y1="40" x2="312" y2="66"/>
+<rect class="grid" x="350" y="30" width="50" height="46"/>
+<rect class="grid" x="400" y="30" width="50" height="46"/>
+<line class="line" x1="412" y1="40" x2="438" y2="66"/>
+<line class="line" x1="438" y1="40" x2="412" y2="66"/>
+<rect class="grid" x="450" y="30" width="50" height="46"/>
+<line class="line" x1="462" y1="40" x2="488" y2="66"/>
+<line class="line" x1="488" y1="40" x2="462" y2="66"/>
+<rect class="grid" x="300" y="76" width="50" height="46"/>
+<rect class="grid" x="350" y="76" width="50" height="46"/>
+<line class="line" x1="362" y1="86" x2="388" y2="112"/>
+<line class="line" x1="388" y1="86" x2="362" y2="112"/>
+<rect class="grid" x="400" y="76" width="50" height="46"/>
+<line class="line" x1="412" y1="86" x2="438" y2="112"/>
+<line class="line" x1="438" y1="86" x2="412" y2="112"/>
+<rect class="grid" x="450" y="76" width="50" height="46"/>
+<rect class="grid" x="300" y="122" width="50" height="46"/>
+<line class="line" x1="312" y1="132" x2="338" y2="158"/>
+<line class="line" x1="338" y1="132" x2="312" y2="158"/>
+<rect class="grid" x="350" y="122" width="50" height="46"/>
+<line class="line" x1="362" y1="132" x2="388" y2="158"/>
+<line class="line" x1="388" y1="132" x2="362" y2="158"/>
+<rect class="grid" x="400" y="122" width="50" height="46"/>
+<rect class="grid" x="450" y="122" width="50" height="46"/>
+<rect class="grid" x="300" y="168" width="50" height="46"/>
+<rect class="grid" x="350" y="168" width="50" height="46"/>
+<line class="line" x1="362" y1="178" x2="388" y2="204"/>
+<line class="line" x1="388" y1="178" x2="362" y2="204"/>
+<rect class="grid" x="400" y="168" width="50" height="46"/>
+<rect class="grid" x="450" y="168" width="50" height="46"/>
+<line class="line" x1="462" y1="178" x2="488" y2="204"/>
+<line class="line" x1="488" y1="178" x2="462" y2="204"/>
+<rect class="grid" x="300" y="214" width="50" height="46"/>
+<line class="line" x1="312" y1="224" x2="338" y2="250"/>
+<line class="line" x1="338" y1="224" x2="312" y2="250"/>
+<rect class="grid" x="350" y="214" width="50" height="46"/>
+<line class="line" x1="362" y1="224" x2="388" y2="250"/>
+<line class="line" x1="388" y1="224" x2="362" y2="250"/>
+<rect class="grid" x="400" y="214" width="50" height="46"/>
+<rect class="grid" x="450" y="214" width="50" height="46"/>
+<line class="line" x1="462" y1="224" x2="488" y2="250"/>
+<line class="line" x1="488" y1="224" x2="462" y2="250"/>
+<text class="small" x="300" y="284">Cartão de descodificação</text>
+</svg>

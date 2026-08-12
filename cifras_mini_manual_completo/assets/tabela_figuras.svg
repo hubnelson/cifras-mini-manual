@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="310" viewBox="0 0 360 310">
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill:#111; }
+.label { font-size:14px; font-weight:700; text-anchor:middle; }
+.small { font-size:11px; }
+.line { stroke:#111; stroke-width:2.2; stroke-linecap:round; fill:none; }
+.grid { stroke:#333; stroke-width:1.2; fill:none; }
+.dot { fill:#111; }
+</style>
+<rect class="grid" x="30" y="25" width="100" height="90"/>
+<ellipse cx="67.0" cy="61" rx="11" ry="17" fill="none" stroke="#111" stroke-width="2"/>
+<ellipse cx="93.0" cy="61" rx="11" ry="17" fill="none" stroke="#111" stroke-width="2"/>
+<line class="line" x1="80.0" y1="46" x2="80.0" y2="77"/>
+<text class="small" text-anchor="middle" x="80.0" y="103">Borboleta</text>
+<rect class="grid" x="130" y="25" width="100" height="90"/>
+<ellipse cx="180.0" cy="66" rx="18" ry="11" fill="none" stroke="#111" stroke-width="2"/>
+<circle cx="198.0" cy="54" r="7" fill="none" stroke="#111" stroke-width="2"/>
+<line class="line" x1="166.0" y1="71" x2="152.0" y2="85"/>
+<line class="line" x1="188.0" y1="74" x2="197.0" y2="89"/>
+<text class="small" text-anchor="middle" x="180.0" y="103">Canguru</text>
+<rect class="grid" x="230" y="25" width="100" height="90"/>
+<circle cx="280.0" cy="61" r="16" fill="none" stroke="#111" stroke-width="2"/>
+<polyline class="line" points="266.0,51 260.0,37 274.0,44"/>
+<polyline class="line" points="294.0,51 300.0,37 286.0,44"/>
+<text class="small" text-anchor="middle" x="280.0" y="103">Gato</text>
+<rect class="grid" x="30" y="115" width="100" height="90"/>
+<circle cx="67.0" cy="163" r="8" fill="none" stroke="#111" stroke-width="2"/>
+<circle cx="93.0" cy="163" r="8" fill="none" stroke="#111" stroke-width="2"/>
+<line class="line" x1="73.0" y1="156" x2="105.0" y2="131"/>
+<line class="line" x1="87.0" y1="156" x2="55.0" y2="131"/>
+<text class="small" text-anchor="middle" x="80.0" y="193">Tesoura</text>
+<rect class="grid" x="130" y="115" width="100" height="90"/>
+<line class="line" x1="162.0" y1="175" x2="195.0" y2="131"/>
+<path d="M 185.0,131 Q 202.0,124 206.0,141 L 192.0,146 Z" fill="none" stroke="#111" stroke-width="2"/>
+<text class="small" text-anchor="middle" x="180.0" y="193">Machado</text>
+<rect class="grid" x="230" y="115" width="100" height="90"/>
+<rect x="260.0" y="141" width="40" height="28" rx="4" fill="none" stroke="#111" stroke-width="2"/>
+<path d="M 255.0,134 Q 280.0,119 305.0,134" fill="none" stroke="#111" stroke-width="5"/>
+<text class="small" text-anchor="middle" x="280.0" y="193">Telefone</text>
+<rect class="grid" x="30" y="205" width="100" height="90"/>
+<path d="M 50.0,241 Q 61.0,223 72.0,237 Q 80.0,221 88.0,237 Q 99.0,223 110.0,241 Q 98.0,249 88.0,246 Q 80.0,259 72.0,246 Q 62.0,249 50.0,241 Z" fill="none" stroke="#111" stroke-width="2"/>
+<text class="small" text-anchor="middle" x="80.0" y="283">Morcego</text>
+<rect class="grid" x="130" y="205" width="100" height="90"/>
+<circle cx="164.0" cy="241" r="10" fill="none" stroke="#111" stroke-width="4"/>
+<line class="line" x1="174.0" y1="241" x2="208.0" y2="241"/>
+<line class="line" x1="197.0" y1="241" x2="197.0" y2="250"/>
+<text class="small" text-anchor="middle" x="180.0" y="283">Chave</text>
+<rect class="grid" x="230" y="205" width="100" height="90"/>
+<rect x="262.0" y="238" width="36" height="29" fill="none" stroke="#111" stroke-width="2"/>
+<polyline class="line" points="255.0,238 280.0,216 305.0,238"/>
+<rect x="275.0" y="251" width="10" height="16" fill="none" stroke="#111" stroke-width="2"/>
+<text class="small" text-anchor="middle" x="280.0" y="283">Casa</text>
+</svg>

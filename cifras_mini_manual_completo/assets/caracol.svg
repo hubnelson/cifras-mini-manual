@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320">
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill:#111; }
+.label { font-size:14px; font-weight:700; text-anchor:middle; }
+.small { font-size:11px; }
+.line { stroke:#111; stroke-width:2.2; stroke-linecap:round; fill:none; }
+.grid { stroke:#333; stroke-width:1.2; fill:none; }
+.dot { fill:#111; }
+</style>
+<rect class="grid" x="35" y="35" width="48" height="42"/>
+<text class="label" x="59.0" y="62">A</text>
+<rect class="grid" x="83" y="35" width="48" height="42"/>
+<text class="label" x="107.0" y="62">I</text>
+<rect class="grid" x="131" y="35" width="48" height="42"/>
+<text class="label" x="155.0" y="62">R</text>
+<rect class="grid" x="179" y="35" width="48" height="42"/>
+<text class="label" x="203.0" y="62">O</text>
+<rect class="grid" x="227" y="35" width="48" height="42"/>
+<text class="label" x="251.0" y="62">A</text>
+<rect class="grid" x="275" y="35" width="48" height="42"/>
+<text class="label" x="299.0" y="62">O</text>
+<rect class="grid" x="35" y="77" width="48" height="42"/>
+<text class="label" x="59.0" y="104">C</text>
+<rect class="grid" x="83" y="77" width="48" height="42"/>
+<text class="label" x="107.0" y="104">O</text>
+<rect class="grid" x="131" y="77" width="48" height="42"/>
+<text class="label" x="155.0" y="104">A</text>
+<rect class="grid" x="179" y="77" width="48" height="42"/>
+<text class="label" x="203.0" y="104">R</text>
+<rect class="grid" x="227" y="77" width="48" height="42"/>
+<text class="label" x="251.0" y="104">I</text>
+<rect class="grid" x="275" y="77" width="48" height="42"/>
+<text class="label" x="299.0" y="104">T</text>
+<rect class="grid" x="35" y="119" width="48" height="42"/>
+<text class="label" x="59.0" y="146">A</text>
+<rect class="grid" x="83" y="119" width="48" height="42"/>
+<text class="label" x="107.0" y="146">C</text>
+<rect class="grid" x="131" y="119" width="48" height="42"/>
+<text class="label" x="155.0" y="146">L</text>
+<rect class="grid" x="179" y="119" width="48" height="42"/>
+<text class="label" x="203.0" y="146">A</text>
+<rect class="grid" x="227" y="119" width="48" height="42"/>
+<text class="label" x="251.0" y="146">E</text>
+<rect class="grid" x="275" y="119" width="48" height="42"/>
+<text class="label" x="299.0" y="146">N</text>
+<rect class="grid" x="35" y="161" width="48" height="42"/>
+<text class="label" x="59.0" y="188">M</text>
+<rect class="grid" x="83" y="161" width="48" height="42"/>
+<text class="label" x="107.0" y="188">O</text>
+<rect class="grid" x="131" y="161" width="48" height="42"/>
+<text class="label" x="155.0" y="188">T</text>
+<rect class="grid" x="179" y="161" width="48" height="42"/>
+<text class="label" x="203.0" y="188">U</text>
+<rect class="grid" x="227" y="161" width="48" height="42"/>
+<text class="label" x="251.0" y="188">U</text>
+<rect class="grid" x="275" y="161" width="48" height="42"/>
+<text class="label" x="299.0" y="188">U</text>
+<rect class="grid" x="35" y="203" width="48" height="42"/>
+<text class="label" x="59.0" y="230">P</text>
+<rect class="grid" x="83" y="203" width="48" height="42"/>
+<text class="label" x="107.0" y="230">M</text>
+<rect class="grid" x="131" y="203" width="48" height="42"/>
+<text class="label" x="155.0" y="230">F</text>
+<rect class="grid" x="179" y="203" width="48" height="42"/>
+<text class="label" x="203.0" y="230">O</text>
+<rect class="grid" x="227" y="203" width="48" height="42"/>
+<text class="label" x="251.0" y="230">G</text>
+<rect class="grid" x="275" y="203" width="48" height="42"/>
+<text class="label" x="299.0" y="230">J</text>
+<rect class="grid" x="35" y="245" width="48" height="42"/>
+<text class="label" x="59.0" y="272">A</text>
+<rect class="grid" x="83" y="245" width="48" height="42"/>
+<text class="label" x="107.0" y="272">M</text>
+<rect class="grid" x="131" y="245" width="48" height="42"/>
+<text class="label" x="155.0" y="272">E</text>
+<rect class="grid" x="179" y="245" width="48" height="42"/>
+<text class="label" x="203.0" y="272">N</text>
+<rect class="grid" x="227" y="245" width="48" height="42"/>
+<text class="label" x="251.0" y="272">T</text>
+<rect class="grid" x="275" y="245" width="48" height="42"/>
+<text class="label" x="299.0" y="272">O</text>
+<polyline points="59.0,266.0 299.0,266.0 299.0,56.0 59.0,56.0 59.0,98.0 251.0,98.0 251.0,224.0 107.0,224.0 107.0,140.0 203.0,140.0 203.0,182.0 155.0,182.0" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="5 4" opacity="0.8"/>
+<text class="small" x="345" y="80">Percurso em caracol</text>
+<text class="small" x="345" y="100">sentido contrário aos</text>
+<text class="small" x="345" y="120">ponteiros do relógio</text>
+</svg>
