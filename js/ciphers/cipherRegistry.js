@@ -5,6 +5,7 @@ import { transposedCipher } from './transposedCipher.js';
 import { passaNMelrosCipher } from './passaNMelrosCipher.js';
 import { numeralAlphabetCipher } from './numeralAlphabetCipher.js';
 import { romanoArabeCipher } from './romanoArabeCipher.js';
+import { metadesCipher } from './metadesCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -20,6 +21,7 @@ class CipherRegistry {
         this.register(passaNMelrosCipher);
         this.register(numeralAlphabetCipher);
         this.register(romanoArabeCipher);
+        this.register(metadesCipher);
         // sampleCipher mantida no código para referência mas omitida do seletor UI
     }
 
