@@ -2,6 +2,7 @@ import { sampleCipher } from './sampleCipher.js';
 import { dataCipher } from './dataCipher.js';
 import { invertedAlphabetCipher } from './invertedAlphabetCipher.js';
 import { transposedCipher } from './transposedCipher.js';
+import { passaNMelrosCipher } from './passaNMelrosCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -14,6 +15,7 @@ class CipherRegistry {
         this.register(dataCipher);
         this.register(invertedAlphabetCipher);
         this.register(transposedCipher);
+        this.register(passaNMelrosCipher);
         this.register(sampleCipher);
     }
 

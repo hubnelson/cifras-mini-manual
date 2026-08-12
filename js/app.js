@@ -67,23 +67,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 label.htmlFor = `extra_${field.id}`;
                 label.textContent = field.label;
 
-                const input = document.createElement('input');
-                input.type = field.type || 'text';
-                input.id = `extra_${field.id}`;
-                input.className = 'form-control';
-                input.value = field.defaultValue !== undefined ? field.defaultValue : '';
-                if (field.placeholder) {
-                    input.placeholder = field.placeholder;
+                if (field.type === 'select' && Array.isArray(field.options)) {
+                    const selectWrapper = document.createElement('div');
+                    selectWrapper.className = 'select-wrapper';
+
+                    const input = document.createElement('select');
+                    input.id = `extra_${field.id}`;
+                    input.className = 'form-control';
+
+                    field.options.forEach(opt => {
+                        const optEl = document.createElement('option');
+                        const val = typeof opt === 'object' ? opt.value : opt;
+                        const lbl = typeof opt === 'object' ? opt.label : opt;
+                        optEl.value = val;
+                        optEl.textContent = lbl;
+                        if (val == field.defaultValue) {
+                            optEl.selected = true;
+                        }
+                        input.appendChild(optEl);
+                    });
+
+                    input.addEventListener('change', () => {
+                        if (inputText.value.trim() !== '') {
+                            processCipher();
+                        }
+                    });
+
+                    selectWrapper.appendChild(input);
+                    group.appendChild(label);
+                    group.appendChild(selectWrapper);
+                } else {
+                    const input = document.createElement('input');
+                    input.type = field.type || 'text';
+                    input.id = `extra_${field.id}`;
+                    input.className = 'form-control';
+                    input.value = field.defaultValue !== undefined ? field.defaultValue : '';
+                    if (field.min !== undefined) input.min = field.min;
+                    if (field.max !== undefined) input.max = field.max;
+                    if (field.placeholder) {
+                        input.placeholder = field.placeholder;
+                    }
+
+                    input.addEventListener('input', () => {
+                        if (inputText.value.trim() !== '') {
+                            processCipher();
+                        }
+                    });
+
+                    group.appendChild(label);
+                    group.appendChild(input);
                 }
 
-                input.addEventListener('input', () => {
-                    if (inputText.value.trim() !== '') {
-                        processCipher();
-                    }
-                });
-
-                group.appendChild(label);
-                group.appendChild(input);
                 cipherExtraOptions.appendChild(group);
             });
         } else {
