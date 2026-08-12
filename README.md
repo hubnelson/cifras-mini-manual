@@ -2,6 +2,8 @@
 
 Aplicação web moderna, responsiva e 100% autónoma (Vanilla HTML, CSS e JavaScript sem dependências externas nem bases de dados) concebida para codificar mensagens cifradas de manuais escutistas.
 
+🌐 **Aceder Online**: [https://hubnelson.github.io/cifras-mini-manual/](https://hubnelson.github.io/cifras-mini-manual/)
+
 ---
 
 ## 🌟 Funcionalidades
@@ -72,14 +74,16 @@ cifras-mini-manual/
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Como Aceder / Executar
 
-Não é necessária qualquer instalação ou processo de compilação (*build*).
+### Opção 1: Consultar Online (Recomendado)
+Aceda diretamente à aplicação pronta a usar sem necessidade de instalações:
+👉 **[https://hubnelson.github.io/cifras-mini-manual/](https://hubnelson.github.io/cifras-mini-manual/)**
 
-### Opção 1: Abrir diretamente no navegador
+### Opção 2: Abrir diretamente no navegador (Local)
 Dê duplo clique ou abra o ficheiro `index.html` em qualquer navegador web moderno (Chrome, Safari, Firefox, Edge).
 
-### Opção 2: Servidor Local (Opcional)
+### Opção 3: Servidor Local (Opcional)
 Se preferir utilizar um servidor HTTP estático simples, pode executar no terminal dentro da pasta do projeto:
 
 ```bash
