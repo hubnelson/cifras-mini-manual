@@ -749,8 +749,7 @@ As palavras são escritas seguidas, sem os espaços que normalmente as separam.
 ## Exemplo
 
 ```text
-SAIRDOCAMPOÀSNOVEHORAS E
-PROCURAROCHEFEÀPORTADAIGREJA
+SAIR DO CAMPO ÀS NOVE HORAS E PROCURAR O CHEFE À PORTA DA IGREJA = SAIRDOCAMPOÀSNOVEHORASEPROCURAROCHEFEÀPORTADAIGREJA
 ```
 
 ---
@@ -764,8 +763,7 @@ As palavras da mensagem são divididas em grupos diferentes dos originais, dific
 ## Exemplo
 
 ```text
-SA IRDOC AMPO ÀSNO VEHO RASEPRO CUR AROCH EFEÀ PO
-RTAD AIG REJA
+SAIR DO CAMPO ÀS NOVE HORAS E PROCURAR O CHEFE À PORTA DA IGREJA = SA IRDOC AMPO ÀSNO VEHO RASEPRO CUR AROCH EFEÀ PO RTAD AIG REJA
 ```
 
 ---
