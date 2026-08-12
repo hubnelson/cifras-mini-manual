@@ -9,6 +9,7 @@ import { metadesCipher } from './metadesCipher.js';
 import { vogaisPorPontosCipher } from './vogaisPorPontosCipher.js';
 import { caranguejoCipher } from './caranguejoCipher.js';
 import { chaveMaisCipher } from './chaveMaisCipher.js';
+import { ultimaLetraFalsaCipher } from './ultimaLetraFalsaCipher.js';
 
 /**
  * Gestor Central de Cifras Escutistas
@@ -28,6 +29,7 @@ class CipherRegistry {
         this.register(vogaisPorPontosCipher);
         this.register(caranguejoCipher);
         this.register(chaveMaisCipher);
+        this.register(ultimaLetraFalsaCipher);
         // sampleCipher mantida no código para referência mas omitida do seletor UI
     }
 
