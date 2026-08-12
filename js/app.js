@@ -153,7 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         input.placeholder = field.placeholder;
                     }
 
+                    const validateAndClamp = () => {
+                        if (field.type === 'number' && input.value !== '' && input.value !== '-') {
+                            const val = parseInt(input.value, 10);
+                            if (!isNaN(val)) {
+                                if (field.max !== undefined && val > field.max) {
+                                    input.value = field.max;
+                                } else if (field.min !== undefined && val < field.min) {
+                                    input.value = field.min;
+                                }
+                            }
+                        }
+                    };
+
                     input.addEventListener('input', () => {
+                        validateAndClamp();
+                        if (inputText.value.trim() !== '') {
+                            processCipher();
+                        }
+                    });
+
+                    input.addEventListener('change', () => {
+                        validateAndClamp();
                         if (inputText.value.trim() !== '') {
                             processCipher();
                         }
