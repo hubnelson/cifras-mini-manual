@@ -62,12 +62,55 @@ document.addEventListener('DOMContentLoaded', () => {
             cipher.extraFields.forEach(field => {
                 const group = document.createElement('div');
                 group.className = 'form-group';
+                group.id = `group_extra_${field.id}`;
 
-                const label = document.createElement('label');
-                label.htmlFor = `extra_${field.id}`;
-                label.textContent = field.label;
+                if (field.type === 'switch' || field.type === 'checkbox') {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'toggle-switch-wrapper';
 
-                if (field.type === 'select' && Array.isArray(field.options)) {
+                    const labelText = document.createElement('span');
+                    labelText.className = 'switch-label-text';
+                    labelText.textContent = field.label;
+
+                    const switchLabel = document.createElement('label');
+                    switchLabel.className = 'toggle-switch';
+
+                    const input = document.createElement('input');
+                    input.type = 'checkbox';
+                    input.id = `extra_${field.id}`;
+                    input.checked = !!field.defaultValue;
+
+                    const slider = document.createElement('span');
+                    slider.className = 'slider';
+
+                    switchLabel.appendChild(input);
+                    switchLabel.appendChild(slider);
+
+                    wrapper.appendChild(labelText);
+                    wrapper.appendChild(switchLabel);
+                    group.appendChild(wrapper);
+
+                    input.addEventListener('change', () => {
+                        // Alternar visibilidade de campos dependentes
+                        cipher.extraFields.forEach(depField => {
+                            if (depField.dependsOn === field.id) {
+                                const depGroup = document.getElementById(`group_extra_${depField.id}`);
+                                if (depGroup) {
+                                    if (input.checked) {
+                                        depGroup.classList.remove('hidden');
+                                    } else {
+                                        depGroup.classList.add('hidden');
+                                    }
+                                }
+                            }
+                        });
+                        processCipher();
+                    });
+                } else if (field.type === 'select' && Array.isArray(field.options)) {
+                    const label = document.createElement('label');
+                    label.htmlFor = `extra_${field.id}`;
+                    label.textContent = field.label;
+
                     const selectWrapper = document.createElement('div');
                     selectWrapper.className = 'select-wrapper';
 
@@ -88,15 +131,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     input.addEventListener('change', () => {
-                        if (inputText.value.trim() !== '') {
-                            processCipher();
-                        }
+                        processCipher();
                     });
 
                     selectWrapper.appendChild(input);
                     group.appendChild(label);
                     group.appendChild(selectWrapper);
                 } else {
+                    const label = document.createElement('label');
+                    label.htmlFor = `extra_${field.id}`;
+                    label.textContent = field.label;
+
                     const input = document.createElement('input');
                     input.type = field.type || 'text';
                     input.id = `extra_${field.id}`;
@@ -119,6 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 cipherExtraOptions.appendChild(group);
+
+                // Ocultar inicialmente se depende de um pai desativado
+                if (field.dependsOn) {
+                    const parentInput = document.getElementById(`extra_${field.dependsOn}`);
+                    const isParentChecked = parentInput ? parentInput.checked : false;
+                    if (!isParentChecked) {
+                        group.classList.add('hidden');
+                    }
+                }
             });
         } else {
             cipherExtraOptions.classList.add('hidden');
@@ -132,7 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cipher.extraFields.forEach(field => {
                 const input = document.getElementById(`extra_${field.id}`);
                 if (input) {
-                    options[field.id] = input.value;
+                    if (field.type === 'switch' || field.type === 'checkbox') {
+                        options[field.id] = input.checked;
+                    } else {
+                        options[field.id] = input.value;
+                    }
                 }
             });
         }
