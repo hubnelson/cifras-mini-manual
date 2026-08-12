@@ -1,19 +1,43 @@
 # Cifras Escutistas - Mini Manual
 
-Aplicação web moderna, responsiva e 100% autónoma (Vanilla HTML, CSS e JavaScript sem dependências externas nem bases de dados) concebida para codificar e descodificar mensagens cifradas de manuais escutistas.
+Aplicação web moderna, responsiva e 100% autónoma (Vanilla HTML, CSS e JavaScript sem dependências externas nem bases de dados) concebida para codificar mensagens cifradas de manuais escutistas.
 
 ---
 
 ## 🌟 Funcionalidades
 
-- **Codificação e Descodificação**: Alternador intuitivo entre modo de codificação e descodificação.
-- **Acionamento Manual por Botão**: Processamento da mensagem ao clicar nos botões dedicados ("Codificar Mensagem" ou "Descodificar Mensagem").
+- **Codificação de Mensagens**: Processamento simples e rápido de mensagens texto.
+- **Acionamento Manual por Botão**: Processamento ao clicar no botão dedicado ("Codificar Mensagem").
 - **Explicação Dinâmica da Cifra**: Cartão explicativo com descrição detalhada do funcionamento da cifra selecionada e um exemplo prático.
+- **Opções Personalizáveis**: Suporte para opções adicionais em cifras específicas (ex: deslocamento numérico, letras chave, seletores).
 - **Utilitários Úteis**:
   - Botão **Limpar** para reiniciar rapidamente a caixa de entrada.
   - Botão **Copiar Resultado** com feedback visual *Toast* instantâneo.
   - Estatísticas em tempo real do número de carateres e palavras.
 - **100% Local & Sem Dependências**: Executa em qualquer navegador web diretamente a partir do ficheiro `index.html`.
+
+---
+
+## 📜 Cifras Disponíveis
+
+A aplicação inclui as seguintes cifras escutistas:
+
+1. **Data**
+2. **Alfabeto Invertido**
+3. **Transposto**
+4. **Passa N Melros** (intercala letras conforme seletor)
+5. **Alfabeto Numeral** (com opção de Chave)
+6. **Romano-Árabe**
+7. **Metades**
+8. **Vogais por Pontos**
+9. **Caranguejo**
+10. **Chave + ?** (deslocamento positivo ou negativo)
+11. **Última Letra Falsa**
+12. **Primeira Letra Falsa**
+13. **Palavras Seguidas**
+14. **Palavras Divididas** (com seletor de tamanho do grupo)
+15. **Batalha Naval com Chave**
+16. **Caracol** (tamanho $N \times N$ calculado automaticamente)
 
 ---
 
@@ -28,7 +52,22 @@ cifras-mini-manual/
     ├── app.js                    # Controlador da UI, gestão de eventos e ligação à lógica
     └── ciphers/
         ├── cipherRegistry.js     # Registo central e gestor extensível de cifras
-        └── sampleCipher.js       # Algoritmo de exemplo demonstrativo (Vogais Numéricas)
+        ├── dataCipher.js
+        ├── invertedAlphabetCipher.js
+        ├── transposedCipher.js
+        ├── passaNMelrosCipher.js
+        ├── numeralAlphabetCipher.js
+        ├── romanoArabeCipher.js
+        ├── metadesCipher.js
+        ├── vogaisPorPontosCipher.js
+        ├── caranguejoCipher.js
+        ├── chaveMaisCipher.js
+        ├── ultimaLetraFalsaCipher.js
+        ├── primeiraLetraFalsaCipher.js
+        ├── palavrasSeguidasCipher.js
+        ├── palavrasDivididasCipher.js
+        ├── batalhaNavalComChaveCipher.js
+        └── caracolCipher.js
 ```
 
 ---
@@ -38,7 +77,7 @@ cifras-mini-manual/
 Não é necessária qualquer instalação ou processo de compilação (*build*).
 
 ### Opção 1: Abrir diretamente no navegador
-Dê duplo clique ou abra o ficheiro `index.html` em qualquer navegador web modern (Chrome, Safari, Firefox, Edge).
+Dê duplo clique ou abra o ficheiro `index.html` em qualquer navegador web moderno (Chrome, Safari, Firefox, Edge).
 
 ### Opção 2: Servidor Local (Opcional)
 Se preferir utilizar um servidor HTTP estático simples, pode executar no terminal dentro da pasta do projeto:
