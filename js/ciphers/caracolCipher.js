@@ -18,40 +18,35 @@ function getRandomLetter() {
     return ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
 }
 
-function getGridSize(textLength, userOption) {
-    const parsed = parseInt(userOption, 10);
-    if (!isNaN(parsed) && parsed >= 2) {
-        return parsed;
-    }
-    const autoSize = Math.ceil(Math.sqrt(textLength));
-    return Math.max(2, autoSize);
+function calculateGridSize(text) {
+    const cleaned = normalizeText(text);
+    if (!cleaned || cleaned.length === 0) return 0;
+    return Math.ceil(Math.sqrt(cleaned.length));
 }
 
 export const caracolCipher = {
     id: 'caracol',
     name: 'Caracol',
-    description: 'As letras da mensagem são dispostas em caracol (sentido anti-horário) numa tabela N x N. A mensagem cifrada é lida normalmente na horizontal por linhas.',
-    example: 'Chave: 6\nEntrada: "ACAMPAMENTO JUNTO AO RIO COM FOGUEIRA"\nSaída: "AIROAOCOARITACLAENMOTUUUPMFOGJAMENTO"',
+    description: 'As letras da mensagem são dispostas em caracol (sentido anti-horário) numa tabela N x N. O tamanho N da tabela é calculado automaticamente fazendo a raiz quadrada do número total de carateres (sem espaços), arredondando para o número inteiro acima.',
+    example: 'Tamanho (36 letras -> N=6)\nEntrada: "ACAMPAMENTO JUNTO AO RIO COM FOGUEIRA"\nSaída: "AIROAOCOARITACLAENMOTUUUPMFOGJAMENTO"',
     
     hasExtraFields: true,
     extraFields: [
         {
             id: 'gridSize',
-            label: 'Tamanho da Tabela (Chave N):',
+            label: 'Tamanho da Tabela (Calculado N x N):',
             type: 'number',
             defaultValue: 0,
-            min: 0,
-            max: 15,
-            placeholder: '0 = Automático (ou ex: 6)'
+            readOnly: true
         }
     ],
 
     encode(text, options = {}) {
-        if (!text) return '';
+        if (!text) return { result: '', computedGridSize: 0 };
         const cleaned = normalizeText(text);
-        if (!cleaned) return '';
+        if (!cleaned) return { result: '', computedGridSize: 0 };
 
-        const N = getGridSize(cleaned.length, options.gridSize);
+        const N = calculateGridSize(text);
         const totalCells = N * N;
 
         // Preenche o array de caracteres (adiciona letras aleatórias se a mensagem for menor que totalCells)
@@ -108,15 +103,15 @@ export const caracolCipher = {
             }
         }
 
-        return result;
+        return { result, computedGridSize: N };
     },
 
     decode(text, options = {}) {
-        if (!text) return '';
+        if (!text) return { result: '', computedGridSize: 0 };
         const cleaned = normalizeText(text);
-        if (!cleaned) return '';
+        if (!cleaned) return { result: '', computedGridSize: 0 };
 
-        const N = getGridSize(cleaned.length, options.gridSize);
+        const N = calculateGridSize(text);
         const totalCells = N * N;
 
         // Criar matriz N x N e preencher horizontalmente com o texto cifrado
@@ -164,6 +159,6 @@ export const caracolCipher = {
             top++;
         }
 
-        return result;
+        return { result, computedGridSize: N };
     }
 };

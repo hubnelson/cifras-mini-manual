@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     input.id = `extra_${field.id}`;
                     input.className = 'form-control';
                     input.value = field.defaultValue !== undefined ? field.defaultValue : '';
+                    if (field.readOnly) input.readOnly = true;
                     if (field.min !== undefined) input.min = field.min;
                     if (field.max !== undefined) input.max = field.max;
                     if (field.placeholder) {
@@ -259,8 +260,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const options = getExtraOptionsValues(cipher);
 
         try {
-            const result = isEncode ? cipher.encode(text, options) : cipher.decode(text, options);
-            outputText.value = result;
+            const res = isEncode ? cipher.encode(text, options) : cipher.decode(text, options);
+            if (typeof res === 'object' && res !== null && res.result !== undefined) {
+                outputText.value = res.result;
+                if (res.computedGridSize !== undefined) {
+                    const gridSizeInput = document.getElementById('extra_gridSize');
+                    if (gridSizeInput) {
+                        gridSizeInput.value = res.computedGridSize;
+                    }
+                }
+            } else {
+                outputText.value = res;
+            }
             updateStats();
         } catch (error) {
             console.error('Erro ao processar cifra:', error);
