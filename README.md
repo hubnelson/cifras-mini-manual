@@ -1,6 +1,6 @@
 # Cifras Escutistas - Mini Manual
 
-Aplicação web moderna, responsiva e 100% autónoma (Vanilla HTML, CSS e JavaScript sem dependências externas nem bases de dados) concebida para codificar mensagens cifradas de manuais escutistas.
+Aplicação web moderna, responsiva e 100% autónoma (Vanilla HTML, CSS e JavaScript sem dependências externas nem bases de dados) concebida para codificar mensagens com cifras do mini-manual escutista.
 
 🌐 **Aceder Online**: [https://hubnelson.github.io/cifras-mini-manual/](https://hubnelson.github.io/cifras-mini-manual/)
 
@@ -125,5 +125,5 @@ O projeto foi desenhado com uma arquitetura modular baseada em ES6 Modules para 
 
 ---
 
-## ⚜️ Sempre Alerta!
+## ⚜️ Sempre Alerta para servir
 Desenvolvido para atividades escutistas e jogos de pistas.
