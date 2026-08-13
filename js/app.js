@@ -1,5 +1,12 @@
 import { cipherRegistry } from './ciphers/cipherRegistry.js';
 
+// Helper para envio seguro de eventos para o Google Analytics (gtag.js)
+function trackAnalyticsEvent(eventName, params = {}) {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Elements DOM
     const cipherSelect = document.getElementById('cipherSelect');
@@ -23,6 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputStats = document.getElementById('inputStats');
     const outputStats = document.getElementById('outputStats');
     const toastNotification = document.getElementById('toastNotification');
+
+    // Helper para obter detalhes da cifra ativa
+    function getActiveCipherInfo() {
+        const selectedId = cipherSelect.value;
+        const cipher = cipherRegistry.get(selectedId);
+        return {
+            id: selectedId,
+            name: cipher ? cipher.name : selectedId
+        };
+    }
 
     // 1. Populate Cipher Select Box
     function populateCipherSelect() {
@@ -104,6 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                             }
                         });
+                        trackAnalyticsEvent('change_cipher_option', {
+                            cipher_id: cipherId,
+                            cipher_name: cipher ? cipher.name : cipherId,
+                            option_id: field.id,
+                            option_value: input.checked
+                        });
                         processCipher();
                     });
                 } else if (field.type === 'select' && Array.isArray(field.options)) {
@@ -131,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     input.addEventListener('change', () => {
+                        trackAnalyticsEvent('change_cipher_option', {
+                            cipher_id: cipherId,
+                            cipher_name: cipher ? cipher.name : cipherId,
+                            option_id: field.id,
+                            option_value: input.value
+                        });
                         processCipher();
                     });
 
@@ -182,6 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     input.addEventListener('change', () => {
                         validateAndClamp();
+                        trackAnalyticsEvent('change_cipher_option', {
+                            cipher_id: cipherId,
+                            cipher_name: cipher ? cipher.name : cipherId,
+                            option_id: field.id,
+                            option_value: input.value
+                        });
                         if (inputText.value.trim() !== '') {
                             processCipher();
                         }
@@ -286,6 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = isEncode ? cipher.encode(text, options) : cipher.decode(text, options);
             outputText.value = typeof result === 'string' ? result : '';
             updateStats();
+
+            if (text.trim() !== '') {
+                trackAnalyticsEvent('cipher_used', {
+                    cipher_id: selectedId,
+                    cipher_name: cipher.name,
+                    mode: isEncode ? 'encode' : 'decode',
+                    text_length: text.length
+                });
+            }
         } catch (error) {
             console.error('Erro ao processar cifra:', error);
             outputText.value = `[ERRO NA CIFRA]: ${error.message}`;
@@ -319,6 +363,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     cipherSelect.addEventListener('change', (e) => {
         const id = e.target.value;
+        const cipher = cipherRegistry.get(id);
+        
+        trackAnalyticsEvent('select_cipher', {
+            cipher_id: id,
+            cipher_name: cipher ? cipher.name : id
+        });
+
         updateCipherInfo(id);
         updateCipherExtraFields(id);
         if (inputText.value.trim() !== '') {
@@ -328,10 +379,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modeEncodeRadio.addEventListener('change', () => {
         updateModeState();
+        const active = getActiveCipherInfo();
+        trackAnalyticsEvent('change_mode', {
+            mode: 'encode',
+            cipher_id: active.id,
+            cipher_name: active.name
+        });
         if (inputText.value.trim() !== '') processCipher();
     });
+
     modeDecodeRadio.addEventListener('change', () => {
         updateModeState();
+        const active = getActiveCipherInfo();
+        trackAnalyticsEvent('change_mode', {
+            mode: 'decode',
+            cipher_id: active.id,
+            cipher_name: active.name
+        });
         if (inputText.value.trim() !== '') processCipher();
     });
 
@@ -345,20 +409,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    btnProcess.addEventListener('click', processCipher);
+    btnProcess.addEventListener('click', () => {
+        const active = getActiveCipherInfo();
+        const isEncode = modeEncodeRadio.checked;
+
+        trackAnalyticsEvent('click_btn_process', {
+            cipher_id: active.id,
+            cipher_name: active.name,
+            mode: isEncode ? 'encode' : 'decode',
+            text_length: inputText.value.length
+        });
+
+        processCipher();
+    });
 
     btnClearInput.addEventListener('click', () => {
+        const active = getActiveCipherInfo();
+        trackAnalyticsEvent('click_btn_clear', {
+            cipher_id: active.id,
+            cipher_name: active.name
+        });
+
         inputText.value = '';
         outputText.value = '';
         updateStats();
         inputText.focus();
     });
 
-    btnCopyOutput.addEventListener('click', copyOutput);
+    btnCopyOutput.addEventListener('click', () => {
+        const active = getActiveCipherInfo();
+        trackAnalyticsEvent('click_btn_copy', {
+            cipher_id: active.id,
+            cipher_name: active.name,
+            output_length: outputText.value.length
+        });
+
+        copyOutput();
+    });
 
     // Initial Setup
     populateCipherSelect();
     updateModeState();
     updateStats();
 });
+
+
 
