@@ -70,6 +70,10 @@ cifras-mini-manual/
         ├── palavrasDivididasCipher.js
         ├── batalhaNavalComChaveCipher.js
         └── caracolCipher.js
+├── package.json                  # Configuração do pacote e scripts de teste
+└── tests/                        # Suíte de testes unitários (Node.js test runner)
+    ├── cipherRegistry.test.js    # Validação do registador central de cifras
+    └── ciphers/                  # Testes para cada uma das cifras individuais
 ```
 
 ---
@@ -90,6 +94,18 @@ Se preferir utilizar um servidor HTTP estático simples, pode executar no termin
 python3 -m http.server 8080
 ```
 Depois aceda no navegador a: `http://localhost:8080`
+
+---
+
+## 🧪 Testes Unitários
+
+O projeto possui uma suíte de testes unitários desenvolvida com o test runner nativo do Node.js (`node:test`), sem necessidade de dependências externas adicionais.
+
+Para executar todos os testes:
+
+```bash
+npm test
+```
 
 ---
 
@@ -127,3 +143,4 @@ O projeto foi desenhado com uma arquitetura modular baseada em ES6 Modules para 
 
 ## ⚜️ Sempre Alerta para servir
 Desenvolvido para atividades escutistas e jogos de pistas.
+
